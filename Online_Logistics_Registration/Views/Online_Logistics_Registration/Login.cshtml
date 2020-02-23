@@ -1,0 +1,39 @@
+﻿@model Online_Logistics_Registration_Entity.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Online_Logistics_Registration", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.userName)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.userName)
+                @Html.ValidationMessageFor(model=>model.userName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.password)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.password)
+                @Html.ValidationMessageFor(model=>model.password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Register", "Register")
+            </td>
+            <td>
+                <input type="submit" id="login" value="Login" />
+            </td>
+        </tr>
+    </table>
+}

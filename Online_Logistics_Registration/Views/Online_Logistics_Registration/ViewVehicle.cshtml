@@ -1,0 +1,66 @@
+﻿@model Online_Logistics_Registration_Entity.Vehicle
+
+@{
+    ViewBag.Title = "ViewVehicle";
+}
+
+<h2>ViewVehicle</h2>
+
+@Html.ActionLink("Add New Vehicle", "AddVehicle")<br />
+
+<table border="1">
+    <tr>
+        <th>
+            Vehicle Id
+        </th>
+        <th>
+            Vehicle Number
+        </th>
+        <th>
+            Vehicle Type
+        </th>
+        <th>
+            Start Location
+        </th>
+        <th>
+            Destination Location
+        </th>
+        <th>
+            Load Weight
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @foreach (Online_Logistics_Registration_Entity.Vehicle item in (IEnumerable<Online_Logistics_Registration_Entity.Vehicle>)TempData["Details"])
+    {
+
+        <tr>
+            <td>
+                @item.vehicleID
+
+            </td>
+            <td>
+                @item.vehicleNumber
+            </td>
+            <td>
+                @item.vehicleType
+            </td>
+            <td>
+                @item.startLocation
+            </td>
+            <td>
+                @item.destinationLocation
+            </td>
+            <td>
+                @item.vehicleLoadWeight
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.vehicleID })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.vehicleID })
+            </td>
+        </tr>
+
+    }
+</table>
+

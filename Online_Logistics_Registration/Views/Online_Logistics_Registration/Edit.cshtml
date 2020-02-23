@@ -1,0 +1,67 @@
+﻿@model Online_Logistics_Registration_Entity.Vehicle
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Update", "Online_Logistics_Registration", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.vehicleID);
+    <table>
+        <tr>
+            <td>
+                Vehicle Number
+            </td>
+            <td>
+                @Html.EditorFor(model => model.vehicleNumber)
+                @Html.ValidationMessageFor(model=>model.vehicleNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Vehicle Type
+            </td>
+            <td>
+                @Html.EditorFor(model => model.vehicleType)
+                @Html.ValidationMessageFor(model=>model.vehicleType)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Start Location
+            </td>
+            <td>
+                @Html.EditorFor(model => model.startLocation)
+                @Html.ValidationMessageFor(model => model.startLocation)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Destination Location
+            </td>
+            <td>
+                @Html.EditorFor(model => model.destinationLocation)
+                @Html.ValidationMessageFor(model => model.destinationLocation)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Load Weight
+            </td>
+            <td>
+                @Html.EditorFor(model => model.vehicleLoadWeight)
+                @Html.ValidationMessageFor(model => model.vehicleLoadWeight)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Cancel", "ViewVehicle")
+            </td>
+            <td>
+                <input type="submit" id="Submit" />
+            </td>
+        </tr>
+    </table>
+}

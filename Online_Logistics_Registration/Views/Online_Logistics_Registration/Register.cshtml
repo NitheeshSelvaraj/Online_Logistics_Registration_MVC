@@ -1,0 +1,84 @@
+﻿@model Online_Logistics_Registration_Entity.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@*@Html.ValidationSummary(true)*@
+@using (Html.BeginForm("Register", "Online_Logistics_Registration", FormMethod.Post))
+{
+
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.name)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.name)
+                @Html.ValidationMessageFor(Model=>Model.name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.mobileNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.mobileNumber)
+                @Html.ValidationMessageFor(Model => Model.mobileNumber)
+            </td>
+        </tr>
+        @*<tr>
+            <td>
+                Gender
+            </td>
+            <td>
+                Male
+                @Html.RadioButtonFor(Model => Model.gender, "Male")
+                Female
+                @Html.RadioButtonFor(Model => Model.gender, "Female")
+            </td>
+        </tr>*@
+        @*<tr>
+            <td>
+                @Html.LabelFor(Model => Model.lorryType)
+            </td>
+            <td>
+                @Html.EnumDropDownListFor(Model => Model.lorryType, "Select Lorry Type")
+            </td>
+        </tr>*@
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.userName)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.userName)
+                @Html.ValidationMessageFor(Model => Model.userName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.password)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.password)
+                @Html.ValidationMessageFor(Model => Model.password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.confirmPassword)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.confirmPassword)
+                @Html.ValidationMessageFor(Model => Model.confirmPassword)
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <input type="submit" id="register" value="Register" />
+            </td>
+        </tr>
+    </table>
+}
