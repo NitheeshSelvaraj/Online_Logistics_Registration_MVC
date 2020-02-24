@@ -74,6 +74,7 @@ namespace Online_Logistics_Registration.Controllers
         [ActionName("AddVehicle")]
         public ActionResult AddVehicle_post(Vehicle vehicle)
         {
+            
             if(ModelState.IsValid)
             {
                 vehicleRepository.Add(vehicle);

@@ -11,7 +11,7 @@ namespace Online_Logistics_Registration_Entity
     {
         [Display(Name ="Vehicle ID")]
         [Required (ErrorMessage="vehicleID Required")]
-        [MaxLength(5,ErrorMessage ="Id should be in 5 digits")]
+        [Range(10000,99999)]
         public int vehicleID { get; set; }
 
         [Display(Name = "Vehicle Number")]
@@ -37,7 +37,7 @@ namespace Online_Logistics_Registration_Entity
 
         [Display(Name = "Load Weight(In tons)")]
         [Required(ErrorMessage = "Load weight Required")]
-        [MaxLength(3)]
+        [Range(12,99)]
         public int vehicleLoadWeight { get; set; }
     }
 }
