@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Online_Logistics_Registration_Entity;
+using System.Data.Entity;
 
 namespace Online_Logistics_Registration_Repository
 {
@@ -47,7 +48,7 @@ namespace Online_Logistics_Registration_Repository
     {
             using (UserContext userContext = new UserContext())
             {
-                userContext.Entry(vehicle).State = System.Data.Entity.EntityState.Modified;
+                userContext.Entry(vehicle).State = EntityState.Modified;
                 return userContext.SaveChanges();
             }
         }

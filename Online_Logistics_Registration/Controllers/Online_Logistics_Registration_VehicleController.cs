@@ -52,7 +52,7 @@ namespace Online_Logistics_Registration.Controllers
         {
             Models.Vehicle vehicle = new Models.Vehicle();
             vehicleEntity = vehiclePath.GetVehicleById(id);
-            //vehicle.VehicleID = vehicleEntity.VehicleID;
+            vehicle.VehicleID = vehicleEntity.VehicleID;
             vehicle.VehicleNumber = vehicleEntity.VehicleNumber;
             vehicle.VehicleType = vehicleEntity.VehicleType;
             vehicle.StartLocation = vehicleEntity.StartLocation;
@@ -66,12 +66,12 @@ namespace Online_Logistics_Registration.Controllers
             vehiclePath.Delete(id);
             return RedirectToAction("ViewVehicle");
         }
-       // [HttpGet]
+       
         public ActionResult Update(Models.Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
-                //vehicleEntity.VehicleID = vehicle.VehicleID;
+                vehicleEntity.VehicleID = vehicle.VehicleID;
                 vehicleEntity.VehicleNumber = vehicle.VehicleNumber;
                 vehicleEntity.VehicleType = vehicle.VehicleType;
                 vehicleEntity.StartLocation = vehicle.StartLocation;

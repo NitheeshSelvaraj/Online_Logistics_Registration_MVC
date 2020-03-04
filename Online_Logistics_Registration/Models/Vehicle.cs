@@ -8,7 +8,7 @@ namespace Online_Logistics_Registration.Models
         //[Display(Name = "Vehicle ID")]
         //[Required(ErrorMessage = "vehicleID Required")]
         //[Range(10000, 99999)]
-        //public int VehicleID { get; set; }
+        public int VehicleID { get; set; }
 
         [Display(Name = "Vehicle Number")]
         [Required(ErrorMessage = "vehicle Number Required")]
