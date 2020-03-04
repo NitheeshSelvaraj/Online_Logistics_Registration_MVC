@@ -2,11 +2,11 @@
 
 @{
     ViewBag.Title = "ViewVehicle";
+    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
 }
 
 <h2>ViewVehicle</h2>
 
-@Html.ActionLink("Add New Vehicle", "AddVehicle")<br />
 
 <table border="1">
     <tr>
@@ -37,30 +37,29 @@
 
         <tr>
             <td>
-                @item.vehicleID
+                @item.VehicleID
 
             </td>
             <td>
-                @item.vehicleNumber
+                @item.VehicleNumber
             </td>
             <td>
-                @item.vehicleType
+                @item.VehicleType
             </td>
             <td>
-                @item.startLocation
+                @item.StartLocation
             </td>
             <td>
-                @item.destinationLocation
+                @item.DestinationLocation
             </td>
             <td>
-                @item.vehicleLoadWeight
+                @item.VehicleLoadWeight
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.vehicleID })|
-                @Html.ActionLink("Delete", "Delete", new { id = item.vehicleID })
+                @Html.ActionLink("Edit", "EditVehicle", new { id = item.VehicleID })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID })
             </td>
         </tr>
 
     }
 </table>
-

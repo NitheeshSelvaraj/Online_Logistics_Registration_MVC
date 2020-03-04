@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+</head>
+<body>
+    <div class="Head">
+        <h1>Online Logistics Registration</h1>
+    </div>
+    <div class="vehicleOption">
+        <div class="space"></div>
+        <div class="addVehicle">
+            @Html.ActionLink("Add", "AddVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+        </div>
+        <div class="viewVehicle">
+            @Html.ActionLink("View", "ViewVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+        </div>
+    </div>
+        <div>
+            @RenderBody()
+        </div>
+</body>
+</html>

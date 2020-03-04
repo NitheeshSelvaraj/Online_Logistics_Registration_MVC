@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Online_Logistics_Registrati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Online_Logistics_Registration_Repository", "Online_Logistics_Registration_Repository\Online_Logistics_Registration_Repository.csproj", "{4AD61689-24D8-4FE9-815C-EED7BD40F6DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Online_Logistics_Registration_BL", "Online_Logistics_Registration_BL\Online_Logistics_Registration_BL.csproj", "{962DAEDA-36BC-46D1-9351-F15CEB5A208F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4AD61689-24D8-4FE9-815C-EED7BD40F6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD61689-24D8-4FE9-815C-EED7BD40F6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD61689-24D8-4FE9-815C-EED7BD40F6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{962DAEDA-36BC-46D1-9351-F15CEB5A208F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{962DAEDA-36BC-46D1-9351-F15CEB5A208F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{962DAEDA-36BC-46D1-9351-F15CEB5A208F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{962DAEDA-36BC-46D1-9351-F15CEB5A208F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

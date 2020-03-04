@@ -1,0 +1,68 @@
+﻿@model Online_Logistics_Registration.Models.Vehicle
+
+@{
+    ViewBag.Title = "EditVehicle";
+    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
+}
+
+<h2>EditVehicle</h2>
+
+@using (Html.BeginForm("Update", "Online_Logistics_Registration_Vehicle", FormMethod.Post))
+{
+    //@Html.HiddenFor(model => model.VehicleID);
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model=>model.VehicleNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.VehicleNumber,new { maxlength="10"})
+                @Html.ValidationMessageFor(model => model.VehicleNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model=>model.VehicleType)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.VehicleType, new { maxlength = "25" })
+                @Html.ValidationMessageFor(model => model.VehicleType)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model=>model.StartLocation)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.StartLocation, new { maxlength = "20" })
+                @Html.ValidationMessageFor(model => model.StartLocation)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model=>model.DestinationLocation)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.DestinationLocation, new { maxlength = "20" })
+                @Html.ValidationMessageFor(model => model.DestinationLocation)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model=>model.VehicleLoadWeight)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.VehicleLoadWeight, new { maxlength = "2" })
+                @Html.ValidationMessageFor(model => model.VehicleLoadWeight)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Cancel", "ViewVehicle")
+            </td>
+            <td>
+                <input type="submit" id="Submit" value="Update"/>
+            </td>
+        </tr>
+    </table>
+}

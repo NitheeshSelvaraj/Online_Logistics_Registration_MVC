@@ -1,18 +1,80 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
+}*/
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
+.Head{
+    background-color:yellowgreen;
+    text-align:center;
+    height:10%;
+}
+.align{
+    display:flex;
+}
+.empty{
+    float:left;
+    width:80%;
+}
+.register{
+    float:left;
+    width:7%;
+    
+}
+.login{
+    float:left;
+    width:7%;
+    
+}
+.home{
+    float:left;
+    width:6%;
+    
+}
+.link{
+    text-decoration:none;
+    color:black;
+    font-size:large;
+}
+.loginform{
+    margin-left:40%;
+}
+.registerform{
+    margin-left:40%
+}
+.homeform{
+    margin-left:30%;
+    margin-top:10%;
+}
+.background{
+    background-repeat:no-repeat;
+    background-size:100% 220%;
+     background-image:url(../Images/m-fusomediumduty-1.jpg)
+}
+.vehicleOption{
+    display:flex;
+}
+.space{
+    float:left;
+    width:85%;
+}
+.addVehicle{
+    float:left;
+    width:7%;
+}
+.viewVehicle{
+    float:left;
+    width:7%;
+}

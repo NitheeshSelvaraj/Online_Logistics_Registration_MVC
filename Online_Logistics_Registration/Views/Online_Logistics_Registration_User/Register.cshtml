@@ -1,0 +1,104 @@
+﻿@model Online_Logistics_Registration.Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="registerform">
+<h2>Register</h2>
+
+@using (Html.BeginForm("Register", "Online_Logistics_Registration_User", FormMethod.Post))
+{
+
+    <table>
+        @*<tr>
+            <td>
+                @Html.LabelFor(Model => Model.Id)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Id)
+                @Html.ValidationMessageFor(Model => Model.Id)
+            </td>
+        </tr>*@
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Name, new { maxlength="30"})
+                @Html.ValidationMessageFor(Model => Model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.MobileNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MobileNumber, new { maxlength = "10" })
+                @Html.ValidationMessageFor(Model => Model.MobileNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Email)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Email)
+                @Html.ValidationMessageFor(Model => Model.Email)
+            </td>
+        </tr>
+        @*<tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    Male
+                    @Html.RadioButtonFor(Model => Model.gender, "Male")
+                    Female
+                    @Html.RadioButtonFor(Model => Model.gender, "Female")
+                </td>
+            </tr>*@
+        @*<tr>
+                <td>
+                    @Html.LabelFor(Model => Model.lorryType)
+                </td>
+                <td>
+                    @Html.EnumDropDownListFor(Model => Model.lorryType, "Select Lorry Type")
+                </td>
+            </tr>*@
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.UserName, new { maxlength = "7" })
+                @Html.ValidationMessageFor(Model => Model.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password, new { maxlength = "20" })
+                @Html.ValidationMessageFor(Model => Model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.ConfirmPassword)
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.ConfirmPassword)
+                @Html.ValidationMessageFor(Model => Model.ConfirmPassword)
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <input type="submit" id="register" value="Register" />
+            </td>
+        </tr>
+    </table>
+}
+</div>

@@ -4,27 +4,28 @@
     ViewBag.Title = "Login";
 }
 
+<div class="loginform">
 <h2>Login</h2>
 
-@using (Html.BeginForm("Login", "Online_Logistics_Registration", FormMethod.Post))
+@using (Html.BeginForm("Login", "Online_Logistics_Registration_User", FormMethod.Post))
 {
     <table>
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.userName)
+                @Html.LabelFor(Model => Model.UserName)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.userName)
-                @Html.ValidationMessageFor(model=>model.userName)
+                @Html.TextBoxFor(Model => Model.UserName)
+                @Html.ValidationMessageFor(model=>model.UserName)
             </td>
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.password)
+                @Html.LabelFor(Model => Model.Password)
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.password)
-                @Html.ValidationMessageFor(model=>model.password)
+                @Html.PasswordFor(Model => Model.Password)
+                @Html.ValidationMessageFor(model=>model.Password)
             </td>
         </tr>
         <tr>
@@ -37,3 +38,4 @@
         </tr>
     </table>
 }
+</div>

@@ -12,7 +12,7 @@ namespace Online_Logistics_Registration
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Online_Logistics_Registration", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Online_Logistics_Registration_User", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
