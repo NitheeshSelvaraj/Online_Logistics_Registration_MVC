@@ -35,8 +35,8 @@ namespace Online_Logistics_Registration_Repository
                 return userContext.SaveChanges();
             }
         }
-    public void Delete(int vehicleId)
-    {
+        public void Delete(int vehicleId)
+        {
             using (UserContext userContext = new UserContext())
             {
                 Vehicle vehicle = userContext.VehicleDetails.Find(vehicleId);
@@ -44,16 +44,16 @@ namespace Online_Logistics_Registration_Repository
                 userContext.SaveChanges();
             }
         }
-    public int Update(Vehicle vehicle)
-    {
+        public int Update(Vehicle vehicle)
+        {
             using (UserContext userContext = new UserContext())
             {
                 userContext.Entry(vehicle).State = EntityState.Modified;
                 return userContext.SaveChanges();
             }
         }
-    public Vehicle GetVehicleById(int vehicleId)
-    {
+        public Vehicle GetVehicleById(int vehicleId)
+        {
             using (UserContext userContext = new UserContext())
             {
                 //UserContext userContext = new UserContext();
@@ -61,5 +61,14 @@ namespace Online_Logistics_Registration_Repository
                
             }
         }
-}
+        public void DeleteUser(int userId)
+        {
+            using (UserContext userContext = new UserContext())
+            {
+                User user = userContext.UserDetails.Find(userId);
+                userContext.UserDetails.Remove(user);
+                userContext.SaveChanges();
+            }
+        }
+    }
 }

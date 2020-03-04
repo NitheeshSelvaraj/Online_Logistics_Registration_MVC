@@ -56,8 +56,8 @@
                 @item.VehicleLoadWeight
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditVehicle", new { id = item.VehicleID })|
-                @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID })
+                @Html.ActionLink("Edit", "EditVehicle", new { id = item.VehicleID }, new { @class = "link" })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID }, new { @class = "link" })
             </td>
         </tr>
 

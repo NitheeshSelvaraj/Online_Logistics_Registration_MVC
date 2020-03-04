@@ -189,6 +189,7 @@
     <Content Include="Views\Online_Logistics_Registration_Vehicle\ViewVehicle.cshtml" />
     <Content Include="Views\Shared\_VehicleMaster.cshtml" />
     <Content Include="Views\Online_Logistics_Registration_Vehicle\Vehicle.cshtml" />
+    <Content Include="Views\Online_Logistics_Registration_Vehicle\UserDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

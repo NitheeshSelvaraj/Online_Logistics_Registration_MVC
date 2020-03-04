@@ -28,5 +28,9 @@ namespace Online_Logistics_Registration_BL
         {
             vehicleRepository.Delete(id);
         }
+        public void DeleteUser(int id)
+        {
+            vehicleRepository.DeleteUser(id);
+        }
     }
 }

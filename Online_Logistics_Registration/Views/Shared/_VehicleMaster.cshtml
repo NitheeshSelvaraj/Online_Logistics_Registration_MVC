@@ -6,17 +6,23 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
 </head>
-<body>
+<body class="background">
     <div class="Head">
         <h1>Online Logistics Registration</h1>
     </div>
     <div class="vehicleOption">
         <div class="space"></div>
         <div class="addVehicle">
-            @Html.ActionLink("Add", "AddVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+            @Html.ActionLink("Add Vehicle", "AddVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
         </div>
         <div class="viewVehicle">
-            @Html.ActionLink("View", "ViewVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+            @Html.ActionLink("View Vehicle", "ViewVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+        </div>
+        <div class="userDetails">
+            @Html.ActionLink("User Details", "UserDetails", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+        </div>
+        <div class="vehicleType">
+            @Html.ActionLink("Add Type", "VehicleType", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
         </div>
     </div>
         <div>

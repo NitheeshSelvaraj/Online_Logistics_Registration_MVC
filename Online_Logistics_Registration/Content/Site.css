@@ -60,7 +60,7 @@ textarea {
 }
 .background{
     background-repeat:no-repeat;
-    background-size:100% 220%;
+    background-size:cover;
      background-image:url(../Images/m-fusomediumduty-1.jpg)
 }
 .vehicleOption{
@@ -68,13 +68,21 @@ textarea {
 }
 .space{
     float:left;
-    width:85%;
+    width:70%;
 }
 .addVehicle{
     float:left;
     width:7%;
 }
 .viewVehicle{
+    float:left;
+    width:7%;
+}
+.userDetails{
+    float:left;
+    width:7%;
+}
+.vehicleType{
     float:left;
     width:7%;
 }

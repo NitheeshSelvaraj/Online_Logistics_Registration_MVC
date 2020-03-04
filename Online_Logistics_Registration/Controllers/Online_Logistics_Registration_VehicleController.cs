@@ -83,5 +83,17 @@ namespace Online_Logistics_Registration.Controllers
             }
             return View("EditVehicle", vehicle);
         }
+        public ActionResult UserDetail()
+        {
+            UserPath userPath = new UserPath();
+            IEnumerable<User> userDetails = userPath.GetDB();
+            TempData["UserDetails"] = userDetails;
+            return View();
+        }
+        public ActionResult DeleteUser(int id)
+        {
+            vehiclePath.DeleteUser(id);
+            return RedirectToAction("UserDetail");
+        }
     }
 }
