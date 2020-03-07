@@ -53,33 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202002260654504_InitialCreate.cs" />
-    <Compile Include="Migrations\202002260654504_InitialCreate.designer.cs">
-      <DependentUpon>202002260654504_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002280934052_Database.cs" />
-    <Compile Include="Migrations\202002280934052_Database.designer.cs">
-      <DependentUpon>202002280934052_Database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002281152525_Database1.cs" />
-    <Compile Include="Migrations\202002281152525_Database1.designer.cs">
-      <DependentUpon>202002281152525_Database1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002290552150_Database2.cs" />
-    <Compile Include="Migrations\202002290552150_Database2.designer.cs">
-      <DependentUpon>202002290552150_Database2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002290632506_Database3.cs" />
-    <Compile Include="Migrations\202002290632506_Database3.designer.cs">
-      <DependentUpon>202002290632506_Database3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003021219028_unique.cs" />
-    <Compile Include="Migrations\202003021219028_unique.designer.cs">
-      <DependentUpon>202003021219028_unique.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003040607263_data.cs" />
-    <Compile Include="Migrations\202003040607263_data.designer.cs">
-      <DependentUpon>202003040607263_data.cs</DependentUpon>
+    <Compile Include="Migrations\202003070653449_InitialDatabase.cs" />
+    <Compile Include="Migrations\202003070653449_InitialDatabase.designer.cs">
+      <DependentUpon>202003070653449_InitialDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserContext.cs" />
@@ -98,26 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002260654504_InitialCreate.resx">
-      <DependentUpon>202002260654504_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002280934052_Database.resx">
-      <DependentUpon>202002280934052_Database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002281152525_Database1.resx">
-      <DependentUpon>202002281152525_Database1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002290552150_Database2.resx">
-      <DependentUpon>202002290552150_Database2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002290632506_Database3.resx">
-      <DependentUpon>202002290632506_Database3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003021219028_unique.resx">
-      <DependentUpon>202003021219028_unique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003040607263_data.resx">
-      <DependentUpon>202003040607263_data.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003070653449_InitialDatabase.resx">
+      <DependentUpon>202003070653449_InitialDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,6 +12,10 @@ namespace Online_Logistics_Registration_BL
         {
             return vehicleRepository.GetDetails();
         }
+        public IEnumerable<VehicleType> GetTypeDetails()
+        {
+            return vehicleRepository.GetTypeDetails();
+        }
         public int Add(Vehicle vehicle)
         {
             return vehicleRepository.Add(vehicle);
@@ -31,6 +35,18 @@ namespace Online_Logistics_Registration_BL
         public void DeleteUser(int id)
         {
             vehicleRepository.DeleteUser(id);
+        }
+        public int AddType(VehicleType vehicleTypeEntity)
+        {
+            return vehicleRepository.AddType(vehicleTypeEntity);
+        }
+        public void DeleteVehicleType(int id)
+        {
+            vehicleRepository.DeleteVehicleType(id);
+        }
+        public IEnumerable<VehicleType> GetVehicle()
+        {
+            return vehicleRepository.GetVehicle();
         }
     }
 }

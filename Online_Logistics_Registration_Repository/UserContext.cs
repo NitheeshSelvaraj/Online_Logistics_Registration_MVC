@@ -11,5 +11,6 @@ namespace Online_Logistics_Registration_Repository
         }
         public DbSet<User> UserDetails { get; set; }
         public DbSet<Vehicle> VehicleDetails { get; set; }
+        public DbSet<VehicleType> VehicleTypeDetails { get; set; }
     }
 }

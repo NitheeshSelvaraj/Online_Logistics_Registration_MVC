@@ -21,22 +21,25 @@ namespace Online_Logistics_Registration.Controllers
             TempData["Details"] = vehicleDetails;
             return View();
         }
+
         [HttpGet]
         [ActionName("AddVehicle")]
         public ActionResult AddVehicle_get()
         {
+            ViewBag.Vehicle = new SelectList(vehiclePath.GetVehicle(), "VehicleTypeID", "VehicleTypes");
             return View();
         }
         [HttpPost]
         [ActionName("AddVehicle")]
         public ActionResult AddVehicle_post(Online_Logistics_Registration.Models.Vehicle vehicle)
         {
+            ViewBag.Vehicle = new SelectList(vehiclePath.GetVehicle(), "VehicleTypeID", "VehicleTypes");
 
             if (ModelState.IsValid)
             {
                 //vehicleEntity.VehicleID = vehicle.VehicleID;
                 vehicleEntity.VehicleNumber = vehicle.VehicleNumber;
-                vehicleEntity.VehicleType = vehicle.VehicleType;
+                vehicleEntity.VehicleTypeID = vehicle.VehicleTypeID;
                 vehicleEntity.StartLocation = vehicle.StartLocation;
                 vehicleEntity.DestinationLocation = vehicle.DestinationLocation;
                 vehicleEntity.VehicleLoadWeight = vehicle.VehicleLoadWeight;
@@ -50,11 +53,12 @@ namespace Online_Logistics_Registration.Controllers
         [ActionName("EditVehicle")]
         public ActionResult Edit(int id)
         {
+            ViewBag.Vehicle = new SelectList(vehiclePath.GetVehicle(), "VehicleTypeID", "VehicleTypes");
             Models.Vehicle vehicle = new Models.Vehicle();
             vehicleEntity = vehiclePath.GetVehicleById(id);
             vehicle.VehicleID = vehicleEntity.VehicleID;
             vehicle.VehicleNumber = vehicleEntity.VehicleNumber;
-            vehicle.VehicleType = vehicleEntity.VehicleType;
+            vehicle.VehicleTypeID = vehicleEntity.VehicleTypeID;
             vehicle.StartLocation = vehicleEntity.StartLocation;
             vehicle.DestinationLocation = vehicleEntity.DestinationLocation;
             vehicle.VehicleLoadWeight = vehicleEntity.VehicleLoadWeight;
@@ -73,7 +77,7 @@ namespace Online_Logistics_Registration.Controllers
             {
                 vehicleEntity.VehicleID = vehicle.VehicleID;
                 vehicleEntity.VehicleNumber = vehicle.VehicleNumber;
-                vehicleEntity.VehicleType = vehicle.VehicleType;
+                vehicleEntity.VehicleTypeID = vehicle.VehicleTypeID;
                 vehicleEntity.StartLocation = vehicle.StartLocation;
                 vehicleEntity.DestinationLocation = vehicle.DestinationLocation;
                 vehicleEntity.VehicleLoadWeight = vehicle.VehicleLoadWeight;
@@ -87,6 +91,13 @@ namespace Online_Logistics_Registration.Controllers
         {
             UserPath userPath = new UserPath();
             IEnumerable<User> userDetails = userPath.GetDB();
+            //foreach(User user in userDetails)
+            //{
+            //    if(user.Role!="Admin")
+            //    {
+            //        TempData["userDetails"] = user;
+            //    }
+            //}
             TempData["UserDetails"] = userDetails;
             return View();
         }
@@ -94,6 +105,39 @@ namespace Online_Logistics_Registration.Controllers
         {
             vehiclePath.DeleteUser(id);
             return RedirectToAction("UserDetail");
+        }
+        public ActionResult VehicleType()
+        {
+            IEnumerable<VehicleType> vehicleTypeDetails = vehiclePath.GetTypeDetails();
+            TempData["TypeDetails"] = vehicleTypeDetails;
+            return View();
+        }
+        [HttpGet]
+        public ActionResult AddVehicleType()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddVehicleType(Models.VehicleType vehicleType)
+        {
+            if (ModelState.IsValid)
+            {
+                VehicleType vehicleTypeEntity = new VehicleType();
+                vehicleTypeEntity.VehicleTypes = vehicleType.VehicleTypes;
+                int result = vehiclePath.AddType(vehicleTypeEntity);
+                if (result == 1)
+                    return RedirectToAction("VehicleType");
+            }
+            return View();
+        }
+        public ActionResult DeleteVehicleType(int id)
+        {
+            vehiclePath.DeleteVehicleType(id);
+            return RedirectToAction("VehicleType");
+        }
+        public ActionResult LogOut()
+        {
+            return RedirectToAction("Login","Online_Logistics_Registration_User");
         }
     }
 }

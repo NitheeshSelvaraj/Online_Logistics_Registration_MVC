@@ -21,17 +21,24 @@ namespace Online_Logistics_Registration_Repository
                 return userContext.VehicleDetails.ToList();
             }
         }
+        public IEnumerable<VehicleType> GetTypeDetails()
+        {
+            using (UserContext userContext = new UserContext())
+            {
+                return userContext.VehicleTypeDetails.ToList();
+            }
+        }
         //public static IEnumerable<Vehicle> Display()
         //{
         //    return vehicleList;
         //}
-        
+
         public int Add(Vehicle vehicle)
         {
            using (UserContext userContext = new UserContext())
             {
                 //UserContext userContext = new UserContext();
-                userContext.VehicleDetails.Add(vehicle);
+                userContext.Entry(vehicle).State = EntityState.Added;
                 return userContext.SaveChanges();
             }
         }
@@ -39,8 +46,8 @@ namespace Online_Logistics_Registration_Repository
         {
             using (UserContext userContext = new UserContext())
             {
-                Vehicle vehicle = userContext.VehicleDetails.Find(vehicleId);
-                userContext.VehicleDetails.Remove(vehicle);
+                Vehicle vehicle = GetVehicleById(vehicleId);
+                userContext.Entry(vehicle).State = EntityState.Deleted;
                 userContext.SaveChanges();
             }
         }
@@ -66,8 +73,32 @@ namespace Online_Logistics_Registration_Repository
             using (UserContext userContext = new UserContext())
             {
                 User user = userContext.UserDetails.Find(userId);
-                userContext.UserDetails.Remove(user);
+                userContext.Entry(user).State = EntityState.Deleted;
                 userContext.SaveChanges();
+            }
+        }
+        public int AddType(VehicleType vehicleTypeEntity)
+        {
+            using (UserContext userContext = new UserContext())
+            {
+                userContext.Entry(vehicleTypeEntity).State = EntityState.Added;
+                return userContext.SaveChanges();
+            }
+        }
+        public void DeleteVehicleType(int Id)
+        {
+            using (UserContext userContext = new UserContext())
+            {
+                VehicleType vehicleType = userContext.VehicleTypeDetails.Find(Id);
+                userContext.Entry(vehicleType).State = EntityState.Deleted;
+                userContext.SaveChanges();
+            }
+        }
+        public IEnumerable<VehicleType> GetVehicle()
+        {
+            using (UserContext userContext = new UserContext())
+            {
+                return userContext.VehicleTypeDetails.ToList();
             }
         }
     }

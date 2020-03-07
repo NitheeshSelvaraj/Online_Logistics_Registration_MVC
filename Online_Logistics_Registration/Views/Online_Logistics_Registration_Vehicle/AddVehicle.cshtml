@@ -33,8 +33,9 @@
                 @Html.LabelFor(Model => Model.VehicleType)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.VehicleType)
-                @Html.ValidationMessageFor(Model => Model.VehicleType)
+                @*@Html.TextBoxFor(Model => Model.VehicleType)
+                @Html.ValidationMessageFor(Model => Model.VehicleType)*@
+                @Html.DropDownListFor(Model=>Model.VehicleTypeID,(IEnumerable<SelectListItem>)ViewBag.Vehicle,"Select Vehicle Type")
             </td>
         </tr>
         <tr>
@@ -67,7 +68,7 @@
         </tr>
         <tr>
             <td>
-                @Html.ActionLink("Cancel", "Vehicle")
+                @Html.ActionLink("Cancel", "Vehicle",new { @class="link"})
             </td>
             <td>
                 <input type="submit" id="Submit" value="Add"/>

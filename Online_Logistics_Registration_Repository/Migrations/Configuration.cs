@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Online_Logistics_Registration_Repository.UserContext";
         }
 
         protected override void Seed(Online_Logistics_Registration_Repository.UserContext context)

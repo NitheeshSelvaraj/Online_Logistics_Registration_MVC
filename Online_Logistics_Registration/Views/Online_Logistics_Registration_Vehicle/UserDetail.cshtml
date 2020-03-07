@@ -33,7 +33,8 @@
     </tr>
     @foreach (Online_Logistics_Registration_Entity.User item in (IEnumerable<Online_Logistics_Registration_Entity.User>)TempData["UserDetails"])
     {
-
+        if (@item.Role != "Admin")
+        {
         <tr>
             <td>
                 @item.Id
@@ -58,6 +59,7 @@
                 @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id }, new { @class = "link" })
             </td>
         </tr>
+            }
 
-    }
+        }
 </table>

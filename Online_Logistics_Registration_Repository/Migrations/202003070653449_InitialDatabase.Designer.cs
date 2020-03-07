@@ -7,13 +7,13 @@ namespace Online_Logistics_Registration_Repository.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class Database1 : IMigrationMetadata
+    public sealed partial class InitialDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Database1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002281152525_Database1"; }
+            get { return "202003070653449_InitialDatabase"; }
         }
         
         string IMigrationMetadata.Source

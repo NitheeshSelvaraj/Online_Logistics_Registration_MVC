@@ -1,0 +1,45 @@
+﻿@model Online_Logistics_Registration.Models.VehicleType
+
+@{
+    ViewBag.Title = "VehicleType";
+    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
+}
+
+<h2>VehicleType</h2>
+
+@using (Html.BeginForm("AddVehicleType", "Online_Logistics_Registration_Vehicle", FormMethod.Get))
+{
+<table border="1">
+    <tr>
+        <th>
+            Vehicle Type Id
+        </th>
+        <th>
+            Vehicle Type
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @foreach (Online_Logistics_Registration_Entity.VehicleType item in (IEnumerable<Online_Logistics_Registration_Entity.VehicleType>)TempData["TypeDetails"])
+    {
+        <tr>
+            <td>
+                @item.VehicleTypeID
+            </td>
+            <td>
+                @item.VehicleTypes
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteVehicleType", new { id = item.VehicleTypeID }, new { @class="link"})
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="2">
+            <input type="submit" id="addvehicletype" value="Add" />
+        </td>
+        
+    </tr>
+</table>
+}

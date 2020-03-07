@@ -68,21 +68,25 @@ textarea {
 }
 .space{
     float:left;
-    width:70%;
+    width:50%;
 }
 .addVehicle{
     float:left;
-    width:7%;
+    width:10%;
 }
 .viewVehicle{
     float:left;
-    width:7%;
+    width:10%;
 }
 .userDetails{
     float:left;
-    width:7%;
+    width:10%;
 }
 .vehicleType{
     float:left;
-    width:7%;
+    width:10%;
+}
+.logout{
+     float:left;
+    width:10%;
 }

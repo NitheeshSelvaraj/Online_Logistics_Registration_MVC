@@ -19,7 +19,7 @@ namespace Online_Logistics_Registration_BL
         {           
            return userRepository.Add(user);
         }
-        public string Check(User userEntity)
+        public User Check(User userEntity)
         {
             return userRepository.Check(userEntity);
         }

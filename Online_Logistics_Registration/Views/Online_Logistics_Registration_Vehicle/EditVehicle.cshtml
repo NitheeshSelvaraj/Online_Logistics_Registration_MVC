@@ -25,8 +25,9 @@
                 @Html.LabelFor(model=>model.VehicleType)
             </td>
             <td>
-                @Html.TextBoxFor(model => model.VehicleType, new { maxlength = "25" })
-                @Html.ValidationMessageFor(model => model.VehicleType)
+                @*@Html.TextBoxFor(model => model.VehicleType, new { maxlength = "25" })
+                @Html.ValidationMessageFor(model => model.VehicleType)*@
+                @Html.DropDownListFor(Model => Model.VehicleTypeID, (IEnumerable<SelectListItem>)ViewBag.Vehicle, "Select Vehicle Type")
             </td>
         </tr>
         <tr>

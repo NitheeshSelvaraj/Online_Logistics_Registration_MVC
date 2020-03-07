@@ -19,10 +19,13 @@
             @Html.ActionLink("View Vehicle", "ViewVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
         </div>
         <div class="userDetails">
-            @Html.ActionLink("User Details", "UserDetails", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+            @Html.ActionLink("User Details", "UserDetail", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
         </div>
         <div class="vehicleType">
             @Html.ActionLink("Add Type", "VehicleType", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+        </div>
+        <div class="logout">
+            @Html.ActionLink("Log Out", "LogOut", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
         </div>
     </div>
         <div>

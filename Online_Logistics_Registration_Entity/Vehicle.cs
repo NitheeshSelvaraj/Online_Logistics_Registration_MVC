@@ -29,7 +29,9 @@ namespace Online_Logistics_Registration_Entity
         //[MaxLength(20)]
         [Required]
         [Column("Vehicle Type")]
-        public string VehicleType { get; set; }
+        //public string VehicleType { get; set; }
+        public int VehicleTypeID { get; set; }
+        public VehicleType VehicleType { get; set; }
 
         //[Display(Name = "Start Location")]
         //[Required(ErrorMessage = "Start Location Required")]

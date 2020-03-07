@@ -18,8 +18,10 @@ namespace Online_Logistics_Registration.Models
 
         [Display(Name = "Vehicle Type")]
         [Required(ErrorMessage = "vehicle Type Required")]
-        [MaxLength(25)]
-        public string VehicleType { get; set; }
+        //[MaxLength(25)]
+        //public string VehicleType { get; set; }
+        public int VehicleTypeID { get; set; }
+        public VehicleType VehicleType { get; set; }
 
         [Display(Name = "Start Location")]
         [Required(ErrorMessage = "Start Location Required")]

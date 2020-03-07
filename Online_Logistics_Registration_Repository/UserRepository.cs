@@ -37,30 +37,31 @@ namespace Online_Logistics_Registration_Repository
             }
             //userContext.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [Online_Logistics].[dbo].[Users] OFF");
         }
-        public string Check(User userEntity)
+        public User Check(User userEntity)
         {
             using (UserContext userContext = new UserContext())
             {
-                IEnumerable<User> userList = userContext.UserDetails.ToList();
-                string flag;
-                foreach (User user in userList)
-                {
-                    if (userEntity.UserName.Equals(user.UserName) && userEntity.Password.Equals(user.Password))
-                    {
-                        if (user.Role.Equals("Admin"))
-                        {
-                            flag = "admin";
-                            return flag;
-                        }
-                        else
-                        {
-                            flag = "user";
-                            return flag;
-                        }
-                    }
-                }
-                flag = "noUser";
-                return flag;
+                return userContext.UserDetails.Where(u => u.UserName == userEntity.UserName && u.Password == userEntity.Password).SingleOrDefault();
+                //IEnumerable<User> userList = userContext.UserDetails.ToList();
+                //string flag;
+                //foreach (User user in userList)
+                //{
+                //    if (userEntity.UserName.Equals(user.UserName) && userEntity.Password.Equals(user.Password))
+                //    {
+                //        if (user.Role.Equals("Admin"))
+                //        {
+                //            flag = "admin";
+                //            return flag;
+                //        }
+                //        else
+                //        {
+                //            flag = "user";
+                //            return flag;
+                //        }
+                //    }
+                //}
+                //flag = "noUser";
+                //return flag;
             }
         }
     }

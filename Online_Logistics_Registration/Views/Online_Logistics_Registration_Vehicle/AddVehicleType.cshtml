@@ -1,0 +1,28 @@
+﻿@model Online_Logistics_Registration.Models.VehicleType
+
+@{
+    ViewBag.Title = "AddVehicleType";
+    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
+}
+
+<h2>AddVehicleType</h2>
+
+@using (Html.BeginForm("AddVehicleType", "Online_Logistics_Registration_Vehicle", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model=>model.VehicleTypes)
+            </td>
+            <td>
+                @Html.TextBoxFor(model=>model.VehicleTypes)
+                @Html.ValidationMessageFor(model=>model.VehicleTypes)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Add" />
+            </td>
+        </tr>
+    </table>
+}

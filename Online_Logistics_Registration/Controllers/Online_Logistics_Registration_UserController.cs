@@ -54,12 +54,12 @@ namespace Online_Logistics_Registration.Controllers
             {
                 userEntity.UserName = userLogin.UserName;
                 userEntity.Password = userLogin.Password;
-                string result = userPath.Check(userEntity);
-                if (result=="admin")
+                userEntity = userPath.Check(userEntity);
+                if (userEntity.Role=="Admin")
                 {
                     return RedirectToAction("Vehicle","Online_Logistics_Registration_Vehicle");
                 }
-                else if(result=="user")
+                else if(userEntity.Role=="User")
                 {
                     Response.Write("LoggedIn as User");
                 }
