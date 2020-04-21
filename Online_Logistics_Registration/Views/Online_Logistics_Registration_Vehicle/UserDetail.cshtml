@@ -2,64 +2,65 @@
 
 @{
     ViewBag.Title = "UserDetail";
-    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
+    //Layout = "~/Views/Shared/_VehicleMaster.cshtml";
 }
+<div class="userDetailForm">
+    <h2>UserDetail</h2>
 
-<h2>UserDetail</h2>
-
-<table border="1">
-    <tr>
-        <th>
-            User Id
-        </th>
-        <th>
-            Name
-        </th>
-        <th>
-            Mobile Number
-        </th>
-        <th>
-            Email 
-        </th>
-        <th>
-            User Name
-        </th>
-        <th>
-            Password
-        </th>
-        <th>
-            Action
-        </th>
-    </tr>
-    @foreach (Online_Logistics_Registration_Entity.User item in (IEnumerable<Online_Logistics_Registration_Entity.User>)TempData["UserDetails"])
-    {
-        if (@item.Role != "Admin")
-        {
+    <table border="1">
         <tr>
-            <td>
-                @item.Id
-
-            </td>
-            <td>
-                @item.Name
-            </td>
-            <td>
-                @item.MobileNumber
-            </td>
-            <td>
-                @item.Email
-            </td>
-            <td>
-                @item.UserName
-            </td>
-            <td>
-                @item.Password
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id }, new { @class = "link" })
-            </td>
+            <th>
+                User Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Mobile Number
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Action
+            </th>
         </tr>
+        @foreach (Online_Logistics_Registration_Entity.User item in (IEnumerable<Online_Logistics_Registration_Entity.User>)TempData["UserDetails"])
+        {
+            if (@item.Role != "Admin")
+            {
+                <tr>
+                    <td>
+                        @item.Id
+
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.MobileNumber
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.UserName
+                    </td>
+                    <td>
+                        @item.Password
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id }, new { @class = "link", Onclick = "return confirm('The details will be deleted permanently. Are you sure to delete?')" })
+                    </td>
+                </tr>
             }
 
         }
-</table>
+    </table>
+</div>

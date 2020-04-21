@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Online_Logistics_Registration_Entity;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System;
 
 namespace Online_Logistics_Registration_Repository
 {
@@ -18,7 +20,7 @@ namespace Online_Logistics_Registration_Repository
         {
             using (UserContext userContext = new UserContext())
             {
-                return userContext.VehicleDetails.ToList();
+                return userContext.VehicleDetails.Include("VehicleType").ToList();
             }
         }
         public IEnumerable<VehicleType> GetTypeDetails()
@@ -37,24 +39,50 @@ namespace Online_Logistics_Registration_Repository
         {
            using (UserContext userContext = new UserContext())
             {
-                //UserContext userContext = new UserContext();
+                //SqlParameter vehicleNumber, vehicleType, startLocation, destinationLocation, distance, rate, loadWeight, status;
+                //vehicleNumber= new SqlParameter("@Vehicle_Number", vehicle.VehicleNumber);
+                //vehicleType = new SqlParameter("@Vehicle_Type", vehicle.VehicleTypeID);
+                //startLocation = new SqlParameter("@Start_Location", vehicle.StartLocation);
+                //destinationLocation = new SqlParameter("@Destination_Location", vehicle.DestinationLocation);
+                //distance = new SqlParameter("@Distance", vehicle.Distance);
+                //rate = new SqlParameter("@Rate", vehicle.Rate);
+                //loadWeight = new SqlParameter("@Load_Weight", vehicle.VehicleLoadWeight);
+                //status = new SqlParameter("@Status", vehicle.Status);
+                //var result = userContext.Database.ExecuteSqlCommand("Vehicle_Insert @Vehicle_Number, @Vehicle_Type, @Start_Location, @Destination_Location, @Distance, @Rate, @Load_Weight, @Status", vehicleNumber, vehicleType, startLocation, destinationLocation, distance, rate, loadWeight, status);
+                //return result;
+                ////UserContext userContext = new UserContext();
                 userContext.Entry(vehicle).State = EntityState.Added;
                 return userContext.SaveChanges();
             }
         }
-        public void Delete(int vehicleId)
+        public int Delete(int vehicleId)
         {
             using (UserContext userContext = new UserContext())
             {
+                //SqlParameter VehicleId = new SqlParameter("@Vehicle_ID", vehicleId);
+                //var result = userContext.Database.ExecuteSqlCommand("Vehicle_Delete @Vehicle_ID", VehicleId);
+                //return result;
                 Vehicle vehicle = GetVehicleById(vehicleId);
                 userContext.Entry(vehicle).State = EntityState.Deleted;
-                userContext.SaveChanges();
+                return userContext.SaveChanges();
             }
         }
         public int Update(Vehicle vehicle)
         {
             using (UserContext userContext = new UserContext())
             {
+                //SqlParameter vehicleId,vehicleNumber, vehicleType, startLocation, destinationLocation, distance, rate, loadWeight, status;
+                //vehicleId = new SqlParameter("@Vehicle_ID",vehicle.VehicleID);
+                //vehicleNumber = new SqlParameter("@Vehicle_Number", vehicle.VehicleNumber);
+                //vehicleType = new SqlParameter("@Vehicle_Type", vehicle.VehicleTypeID);
+                //startLocation = new SqlParameter("@Start_Location", vehicle.StartLocation);
+                //destinationLocation = new SqlParameter("@Destination_Location", vehicle.DestinationLocation);
+                //distance = new SqlParameter("@Distance", vehicle.Distance);
+                //rate = new SqlParameter("@Rate", vehicle.Rate);
+                //loadWeight = new SqlParameter("@Load_Weight", vehicle.VehicleLoadWeight);
+                //status = new SqlParameter("@Status", vehicle.Status);
+                //var result = userContext.Database.ExecuteSqlCommand("Vehicle_Update @Vehicle_ID,@Vehicle_Number, @Vehicle_Type, @Start_Location, @Destination_Location, @Distance, @Rate, @Load_Weight, @Status", vehicleId, vehicleNumber, vehicleType, startLocation, destinationLocation, distance, rate, loadWeight, status);
+                //return result;
                 userContext.Entry(vehicle).State = EntityState.Modified;
                 return userContext.SaveChanges();
             }
@@ -65,7 +93,7 @@ namespace Online_Logistics_Registration_Repository
             {
                 //UserContext userContext = new UserContext();
                 return userContext.VehicleDetails.Find(vehicleId);
-               
+
             }
         }
         public void DeleteUser(int userId)
@@ -81,17 +109,35 @@ namespace Online_Logistics_Registration_Repository
         {
             using (UserContext userContext = new UserContext())
             {
-                userContext.Entry(vehicleTypeEntity).State = EntityState.Added;
-                return userContext.SaveChanges();
+                using (var transaction = userContext.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        SqlParameter VehicleTypes = new SqlParameter("@Vehicle_Type", vehicleTypeEntity.VehicleTypes);
+                        var result = userContext.Database.ExecuteSqlCommand("VehicleType_Insert @Vehicle_Type", VehicleTypes);
+                        transaction.Commit();
+                        return result;
+                    }
+                    catch(Exception)
+                    {
+                        transaction.Rollback();
+                        return 0;
+                    }
+                }
+                //userContext.Entry(vehicleTypeEntity).State = EntityState.Added;
+                //return userContext.SaveChanges();
             }
         }
-        public void DeleteVehicleType(int Id)
+        public int DeleteVehicleType(int Id)
         {
             using (UserContext userContext = new UserContext())
             {
+                //SqlParameter VehicleTypeId = new SqlParameter("@Vehicle_Type_ID", Id);
+                //var result = userContext.Database.ExecuteSqlCommand("VehicleType_Delete @Vehicle_Type_ID", VehicleTypeId);
+                //return result;
                 VehicleType vehicleType = userContext.VehicleTypeDetails.Find(Id);
                 userContext.Entry(vehicleType).State = EntityState.Deleted;
-                userContext.SaveChanges();
+                return userContext.SaveChanges();
             }
         }
         public IEnumerable<VehicleType> GetVehicle()

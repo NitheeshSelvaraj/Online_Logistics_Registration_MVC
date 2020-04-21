@@ -9,18 +9,43 @@
 <body class="background">
     <div class="Head">
         <h1>Online Logistics Registration</h1>
-        </div>
+    </div>
     <div class="align">
         <div class="empty"></div>
-        <div class="register">
-            @Html.ActionLink("Register", "Register", "Online_Logistics_Registration_User", new { @class="link" })
-        </div>
-        <div class="login">
-            @Html.ActionLink("Login", "Login", "Online_Logistics_Registration_User", new { @class = "link" })
-        </div>
+        @if(Request.IsAuthenticated)
+        {
+
+            <div class="logout">
+                @Html.ActionLink("Log Out", "LogOut", "Online_Logistics_Registration_User", new { @class = "link" })
+            </div>
+        }
+        else
+        {
+            <div class="register">
+                @Html.ActionLink("Register", "Register", "Online_Logistics_Registration_User", new { @class = "link" })
+            </div>
+            <div class="login">
+                @Html.ActionLink("Login", "Login", "Online_Logistics_Registration_User", new { @class = "link" })
+            </div>
+        }
+        @if (HttpContext.Current.User.IsInRole("Admin"))
+        {
+            <div class="addVehicle">
+                @Html.ActionLink("Add Vehicle", "AddVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+            </div>
+            <div class="viewVehicle">
+                @Html.ActionLink("View Vehicle", "ViewVehicle", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+            </div>
+            <div class="userDetails">
+                @Html.ActionLink("User Details", "UserDetail", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+            </div>
+            <div class="vehicleType">
+                @Html.ActionLink("Add Type", "VehicleType", "Online_Logistics_Registration_Vehicle", new { @class = "link" })
+            </div>
+        }
         <div class="home">
             @Html.ActionLink("Home", "Index", "Online_Logistics_Registration_User", new { @class = "link" })
-        </div>       
+        </div>
     </div>
     <div>
         @RenderBody()

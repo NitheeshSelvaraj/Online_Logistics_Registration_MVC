@@ -1,78 +1,97 @@
-﻿@model Online_Logistics_Registration.Models.Vehicle
+﻿@model Online_Logistics_Registration.Models.VehicleModel
 
 @{
     ViewBag.Title = "AddVehicle";
-    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
+    //Layout = "~/Views/Shared/_VehicleMaster.cshtml";
 }
+<div class="addVehicleForm">
+    <h2>AddVehicle</h2>
 
-<h2>AddVehicle</h2>
+    @using (Html.BeginForm("AddVehicle", "Online_Logistics_Registration_Vehicle", FormMethod.Post))
+    {
 
-@using (Html.BeginForm("AddVehicle", "Online_Logistics_Registration_Vehicle", FormMethod.Post))
-{
-    <table>
-        @*<tr>
-            <td>
-                @Html.LabelFor(Model => Model.VehicleID)
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.VehicleID)
-                @Html.ValidationMessageFor(Model => Model.VehicleID)
-            </td>
-        </tr>*@
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.VehicleNumber)
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.VehicleNumber)
-                @Html.ValidationMessageFor(Model => Model.VehicleNumber)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.VehicleType)
-            </td>
-            <td>
-                @*@Html.TextBoxFor(Model => Model.VehicleType)
-                @Html.ValidationMessageFor(Model => Model.VehicleType)*@
-                @Html.DropDownListFor(Model=>Model.VehicleTypeID,(IEnumerable<SelectListItem>)ViewBag.Vehicle,"Select Vehicle Type")
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.StartLocation)
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.StartLocation)
-                @Html.ValidationMessageFor(Model => Model.StartLocation)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.DestinationLocation)
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.DestinationLocation)
-                @Html.ValidationMessageFor(Model => Model.DestinationLocation)
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.VehicleLoadWeight)
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.VehicleLoadWeight)
-                @Html.ValidationMessageFor(Model => Model.VehicleLoadWeight)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.ActionLink("Cancel", "Vehicle",new { @class="link"})
-            </td>
-            <td>
-                <input type="submit" id="Submit" value="Add"/>
-            </td>
-        </tr>
-    </table>
-}
+        <table>
+            @*<tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.VehicleID)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.VehicleID)
+                        @Html.ValidationMessageFor(Model => Model.VehicleID)
+                    </td>
+                </tr>*@
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.VehicleNumber)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.VehicleNumber)
+                    @Html.ValidationMessageFor(Model => Model.VehicleNumber)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.VehicleType)
+                </td>
+                <td>
+                    @*@Html.TextBoxFor(Model => Model.VehicleType)
+                        @Html.ValidationMessageFor(Model => Model.VehicleType)*@
+                    @Html.DropDownListFor(Model => Model.VehicleTypeID, (IEnumerable<SelectListItem>)ViewBag.Vehicle, "Select Vehicle Type")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.StartLocation)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.StartLocation)
+                    @Html.ValidationMessageFor(Model => Model.StartLocation)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.DestinationLocation)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.DestinationLocation)
+                    @Html.ValidationMessageFor(Model => Model.DestinationLocation)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Distance)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Distance)
+                    @Html.ValidationMessageFor(Model => Model.Distance)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Rate)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Rate)
+                    @Html.ValidationMessageFor(Model => Model.Rate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.VehicleLoadWeight)
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.VehicleLoadWeight)
+                    @Html.ValidationMessageFor(Model => Model.VehicleLoadWeight)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Cancel", "Vehicle", new { @class = "link" })
+                </td>
+                <td>
+                    <input type="submit" id="Submit" value="Add" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

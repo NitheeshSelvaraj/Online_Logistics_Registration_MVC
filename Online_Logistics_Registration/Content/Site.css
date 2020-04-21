@@ -26,20 +26,20 @@ textarea {
 }
 .empty{
     float:left;
-    width:80%;
+    /*width:80%;*/
 }
 .register{
-    float:left;
+    float:right;
     width:7%;
     
 }
 .login{
-    float:left;
+    float:right;
     width:7%;
     
 }
 .home{
-    float:left;
+    float:right;
     width:6%;
     
 }
@@ -58,6 +58,24 @@ textarea {
     margin-left:30%;
     margin-top:10%;
 }
+.addVehicleForm{
+    margin-left:40%
+}
+.addVehicleTypeForm{
+    margin-left:40%;
+}
+.editVehicleForm{
+    margin-left:40%;
+}
+.userDetailForm{
+    margin-left:30%;
+}
+.vehicleTypeForm{
+    margin-left:40%;
+}
+.viewVehicleForm{
+    margin-left:20%;
+}
 .background{
     background-repeat:no-repeat;
     background-size:cover;
@@ -66,27 +84,27 @@ textarea {
 .vehicleOption{
     display:flex;
 }
-.space{
+/*.space{
     float:left;
     width:50%;
-}
+}*/
 .addVehicle{
-    float:left;
+    float:right;
     width:10%;
 }
 .viewVehicle{
-    float:left;
+    float:right;
     width:10%;
 }
 .userDetails{
-    float:left;
+    float:right;
     width:10%;
 }
 .vehicleType{
-    float:left;
+    float:right;
     width:10%;
 }
 .logout{
-     float:left;
+     float:right;
     width:10%;
 }

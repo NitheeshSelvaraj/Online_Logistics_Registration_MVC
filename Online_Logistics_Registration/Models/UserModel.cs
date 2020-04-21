@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Online_Logistics_Registration.Models
 {
-    public class User
+    public class UserModel
     {
         //[Display(Name = "UserId")]
         //[Required(ErrorMessage = "Id Required")]

@@ -1,45 +1,46 @@
-﻿@model Online_Logistics_Registration.Models.VehicleType
+﻿@model Online_Logistics_Registration.Models.VehicleTypeModel
 
 @{
     ViewBag.Title = "VehicleType";
-    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
+    //Layout = "~/Views/Shared/_VehicleMaster.cshtml";
 }
+<div class="vehicleTypeForm">
+    <h2>VehicleType</h2>
 
-<h2>VehicleType</h2>
-
-@using (Html.BeginForm("AddVehicleType", "Online_Logistics_Registration_Vehicle", FormMethod.Get))
-{
-<table border="1">
-    <tr>
-        <th>
-            Vehicle Type Id
-        </th>
-        <th>
-            Vehicle Type
-        </th>
-        <th>
-            Action
-        </th>
-    </tr>
-    @foreach (Online_Logistics_Registration_Entity.VehicleType item in (IEnumerable<Online_Logistics_Registration_Entity.VehicleType>)TempData["TypeDetails"])
+    @using (Html.BeginForm("AddVehicleType", "Online_Logistics_Registration_Vehicle", FormMethod.Get))
     {
-        <tr>
-            <td>
-                @item.VehicleTypeID
-            </td>
-            <td>
-                @item.VehicleTypes
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "DeleteVehicleType", new { id = item.VehicleTypeID }, new { @class="link"})
-            </td>
-        </tr>
+        <table border="1">
+            <tr>
+                <th>
+                    Vehicle Type Id
+                </th>
+                <th>
+                    Vehicle Type
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+            @foreach (Online_Logistics_Registration_Entity.VehicleType item in (IEnumerable<Online_Logistics_Registration_Entity.VehicleType>)TempData["TypeDetails"])
+            {
+                <tr>
+                    <td>
+                        @item.VehicleTypeID
+                    </td>
+                    <td>
+                        @item.VehicleTypes
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteVehicleType", new { id = item.VehicleTypeID }, new { @class = "link", Onclick = "return confirm('The details will be deleted permanently. Are you sure to delete?')" })
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="2">
+                    <input type="submit" id="addvehicletype" value="Add" />
+                </td>
+
+            </tr>
+        </table>
     }
-    <tr>
-        <td colspan="2">
-            <input type="submit" id="addvehicletype" value="Add" />
-        </td>
-        
-    </tr>
-</table>
-}
+</div>

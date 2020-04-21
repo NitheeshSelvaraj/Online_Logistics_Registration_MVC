@@ -8,7 +8,13 @@ using System.Threading.Tasks;
 
 namespace Online_Logistics_Registration_BL
 {
-    public class UserPath
+    public interface IUserPath
+    {
+        bool Register(User user);
+        User Check(User userEntity);
+        IEnumerable<User> GetDB();
+    }
+    public class UserPath : IUserPath
     {
         UserRepository userRepository = new UserRepository();
         public IEnumerable<User> GetDB()

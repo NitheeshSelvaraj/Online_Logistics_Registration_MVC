@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Online_Logistics_Registration.Models
 {
-    public class Login
+    public class LoginModel
     {
         [Display(Name = "User Name")]
         [Required(ErrorMessage = "UserName Required")]

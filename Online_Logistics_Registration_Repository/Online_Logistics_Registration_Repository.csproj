@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -44,6 +48,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,6 +61,22 @@
     <Compile Include="Migrations\202003070653449_InitialDatabase.cs" />
     <Compile Include="Migrations\202003070653449_InitialDatabase.designer.cs">
       <DependentUpon>202003070653449_InitialDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003110458428_sp.cs" />
+    <Compile Include="Migrations\202003110458428_sp.designer.cs">
+      <DependentUpon>202003110458428_sp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111706262_sp1.cs" />
+    <Compile Include="Migrations\202003111706262_sp1.designer.cs">
+      <DependentUpon>202003111706262_sp1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003160839279_table.cs" />
+    <Compile Include="Migrations\202003160839279_table.designer.cs">
+      <DependentUpon>202003160839279_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003161038384_table1.cs" />
+    <Compile Include="Migrations\202003161038384_table1.designer.cs">
+      <DependentUpon>202003161038384_table1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserContext.cs" />
@@ -76,6 +97,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003070653449_InitialDatabase.resx">
       <DependentUpon>202003070653449_InitialDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110458428_sp.resx">
+      <DependentUpon>202003110458428_sp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111706262_sp1.resx">
+      <DependentUpon>202003111706262_sp1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003160839279_table.resx">
+      <DependentUpon>202003160839279_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003161038384_table1.resx">
+      <DependentUpon>202003161038384_table1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

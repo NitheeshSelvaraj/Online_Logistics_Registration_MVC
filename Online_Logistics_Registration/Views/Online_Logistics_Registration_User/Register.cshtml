@@ -1,4 +1,4 @@
-﻿@model Online_Logistics_Registration.Models.User
+﻿@model Online_Logistics_Registration.Models.UserModel
 
 @{
     ViewBag.Title = "Register";
@@ -10,7 +10,7 @@
 
 @using (Html.BeginForm("Register", "Online_Logistics_Registration_User", FormMethod.Post))
 {
-
+    @Html.AntiForgeryToken()
     <table>
         @*<tr>
             <td>

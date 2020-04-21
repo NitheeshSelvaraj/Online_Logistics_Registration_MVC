@@ -12,11 +12,11 @@ namespace Online_Logistics_Registration_Entity
     {
         [Required]
         [Key]
-        [Column("Vehicle Type ID")]
+        [Column("Vehicle_Type_ID")]
         public int VehicleTypeID { get; set; }
 
         [Required]
-        [Column("Vehicle Type")]
+        [Column("Vehicle_Type")]
         [MaxLength(25)]
         [Index(IsUnique =true)]
         public string VehicleTypes { get; set; }

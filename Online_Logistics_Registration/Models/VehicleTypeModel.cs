@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Online_Logistics_Registration.Models
 {
-    public class VehicleType
+    public class VehicleTypeModel
     {
         public int VehicleTypeID { get; set; }
 

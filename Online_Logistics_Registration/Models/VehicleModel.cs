@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Online_Logistics_Registration.Models
 {
-    public class Vehicle
+    public class VehicleModel
     {
         //[Display(Name = "Vehicle ID")]
         //[Required(ErrorMessage = "vehicleID Required")]
@@ -21,7 +21,7 @@ namespace Online_Logistics_Registration.Models
         //[MaxLength(25)]
         //public string VehicleType { get; set; }
         public int VehicleTypeID { get; set; }
-        public VehicleType VehicleType { get; set; }
+        public VehicleTypeModel VehicleType { get; set; }
 
         [Display(Name = "Start Location")]
         [Required(ErrorMessage = "Start Location Required")]
@@ -33,9 +33,19 @@ namespace Online_Logistics_Registration.Models
         [MaxLength(20)]
         public string DestinationLocation { get; set; }
 
+        [Required(ErrorMessage ="Distance Required")]
+        [Display(Name = "Distance")]
+        [Range(10,1000)]
+        public int Distance { get; set; }
+
+        [Required(ErrorMessage = "Rate Required")]
+        [Display(Name = "Rate(per km)")]
+        public int Rate { get; set; }
+
         [Display(Name = "Load Weight(In tons)")]
         [Required(ErrorMessage = "Load weight Required")]
         [Range(12, 99)]
         public int VehicleLoadWeight { get; set; }
+
     }
 }

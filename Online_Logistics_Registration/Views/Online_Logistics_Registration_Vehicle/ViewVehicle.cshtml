@@ -2,64 +2,84 @@
 
 @{
     ViewBag.Title = "ViewVehicle";
-    Layout = "~/Views/Shared/_VehicleMaster.cshtml";
+    //Layout = "~/Views/Shared/_VehicleMaster.cshtml";
 }
 
-<h2>ViewVehicle</h2>
+<div class="viewVehicleForm">
+    <h2>ViewVehicle</h2>
 
 
-<table border="1">
-    <tr>
-        <th>
-            Vehicle Id
-        </th>
-        <th>
-            Vehicle Number
-        </th>
-        <th>
-            Vehicle Type
-        </th>
-        <th>
-            Start Location
-        </th>
-        <th>
-            Destination Location
-        </th>
-        <th>
-            Load Weight
-        </th>
-        <th>
-            Action
-        </th>
-    </tr>
-    @foreach (Online_Logistics_Registration_Entity.Vehicle item in (IEnumerable<Online_Logistics_Registration_Entity.Vehicle>)TempData["Details"])
-    {
-
+    <table border="1">
         <tr>
-            <td>
-                @item.VehicleID
-
-            </td>
-            <td>
-                @item.VehicleNumber
-            </td>
-            <td>
-                @item.VehicleType
-            </td>
-            <td>
-                @item.StartLocation
-            </td>
-            <td>
-                @item.DestinationLocation
-            </td>
-            <td>
-                @item.VehicleLoadWeight
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditVehicle", new { id = item.VehicleID }, new { @class = "link" })|
-                @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID }, new { @class = "link" })
-            </td>
+            <th>
+                Vehicle Id
+            </th>
+            <th>
+                Vehicle Number
+            </th>
+            <th>
+                Vehicle Type
+            </th>
+            <th>
+                Start Location
+            </th>
+            <th>
+                Destination Location
+            </th>
+            <th>
+                Distance
+            </th>
+            <th>
+                Rate
+            </th>
+            <th>
+                Load Weight
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Action
+            </th>
         </tr>
+        @foreach (Online_Logistics_Registration_Entity.Vehicle item in (IEnumerable<Online_Logistics_Registration_Entity.Vehicle>)TempData["Details"])
+        {
 
-    }
-</table>
+            <tr>
+                <td>
+                    @item.VehicleID
+
+                </td>
+                <td>
+                    @item.VehicleNumber
+                </td>
+                <td>
+                    @item.VehicleType.VehicleTypes
+                </td>
+                <td>
+                    @item.StartLocation
+                </td>
+                <td>
+                    @item.DestinationLocation
+                </td>
+                <td>
+                    @item.Distance
+                </td>
+                <td>
+                    @item.Rate
+                </td>
+                <td>
+                    @item.VehicleLoadWeight
+                </td>
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditVehicle", new { id = item.VehicleID }, new { @class = "link" })|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID }, new { @class = "link", Onclick = "return confirm('The details will be deleted permanently. Are you sure to delete?')" })
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>
