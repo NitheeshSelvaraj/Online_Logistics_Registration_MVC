@@ -108,3 +108,9 @@ textarea {
      float:right;
     width:10%;
 }
+.column{
+    text-align:center;
+}
+.table{
+    width:50%;
+}

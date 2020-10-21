@@ -1,0 +1,96 @@
+﻿@model Online_Logistics_Registration_Entity.Vehicle
+
+@{
+    ViewBag.Title = "VehicleSuggestion";
+}
+
+
+<div class="viewVehicleForm">
+    <h2>VehicleSuggestion</h2>
+
+      <table border="1" class="table">
+          @foreach (Online_Logistics_Registration_Entity.Vehicle item in (IEnumerable<Online_Logistics_Registration_Entity.Vehicle>)TempData["Suggestion"])
+          {
+              <table border="1" class="table">
+
+                  <tr>
+                      <td>
+                          Vehicle Id 
+                      </td>
+                      <td>
+                          @item.VehicleID
+
+                      </td>
+                 </tr>
+                  <tr>
+                      <td>
+                          Vehicle Number 
+                      </td>
+                      <td>
+                          @item.VehicleNumber
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Vehicle Type 
+                      </td>
+                      <td>
+                          @item.VehicleType.VehicleTypes
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Start Location 
+                      </td>
+                      <td>
+                          @item.StartLocation
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Destination Location 
+                      </td>
+                      <td>
+                          @item.DestinationLocation
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Distance 
+                      </td>
+                      <td>
+                          @item.Distance
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Rate 
+                      </td>
+                      <td>
+                          @item.Rate
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Load 
+                      </td>
+                      <td>
+                          @item.VehicleLoadWeight
+                      </td>
+                  </tr>
+                  <tr>
+                      
+                      <td>
+                      </td>
+                      <td colspan="2">
+                          @*@Html.ActionLink("Book", "", new { id = item.VehicleID }, new { @class = "link" })*@
+                          <input type="submit" id="book" value="Book" />
+                      </td>
+                  </tr>
+              </table>
+          }
+      </table>  
+        
+          
+</div>
+

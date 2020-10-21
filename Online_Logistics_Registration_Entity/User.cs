@@ -84,5 +84,7 @@ namespace Online_Logistics_Registration_Entity
         //    get { return Role; }
         //    set { Role = "User"; }
         //}
+        [Column("Points", Order = 7)]
+        public int Points { get; set; }
     }
 }

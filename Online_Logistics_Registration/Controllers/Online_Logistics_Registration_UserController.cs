@@ -72,7 +72,7 @@ namespace Online_Logistics_Registration.Controllers
                     if (checkUser.Role == "Admin")//"True" if the  logined user is "Admin"                
                         return RedirectToAction("Home", "Logistics_Home");
                     else if (checkUser.Role == "User")//"True" if the Logined user is "User"           
-                        Response.Write("Logged in as user");
+                        return RedirectToAction("VehicleSuggestion", "Online_Logistics_Registration_Vehicle");
                 }
                 else
                 {

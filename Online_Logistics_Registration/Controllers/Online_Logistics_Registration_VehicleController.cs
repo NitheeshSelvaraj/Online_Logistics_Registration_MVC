@@ -165,5 +165,11 @@ namespace Online_Logistics_Registration.Controllers
         {
             return RedirectToAction("Login","Online_Logistics_Registration_User");
         }
+        public ActionResult VehicleSuggestion()
+        {
+            IEnumerable<Vehicle> vehicleDetails = vehiclePath.GetDB();
+            TempData["Suggestion"] = vehicleDetails;
+            return View();
+        }
     }
 }

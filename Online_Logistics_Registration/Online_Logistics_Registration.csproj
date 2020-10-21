@@ -204,6 +204,7 @@
     <Content Include="Views\Online_Logistics_Registration_Vehicle\AddVehicleType.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Logistics_Home\Home.cshtml" />
+    <Content Include="Views\Online_Logistics_Registration_Vehicle\VehicleSuggestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

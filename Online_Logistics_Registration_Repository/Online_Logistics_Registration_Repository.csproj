@@ -78,6 +78,10 @@
     <Compile Include="Migrations\202003161038384_table1.designer.cs">
       <DependentUpon>202003161038384_table1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008270331594_data.cs" />
+    <Compile Include="Migrations\202008270331594_data.designer.cs">
+      <DependentUpon>202008270331594_data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserContext.cs" />
     <Compile Include="UserRepository.cs" />
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003161038384_table1.resx">
       <DependentUpon>202003161038384_table1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008270331594_data.resx">
+      <DependentUpon>202008270331594_data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
