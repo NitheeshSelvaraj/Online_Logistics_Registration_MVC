@@ -43,12 +43,16 @@ textarea {
     width:6%;
     
 }
-.link{
-    text-decoration:none;
-    color:black;
-    font-size:large;
+.link {
+    text-decoration: none;
+   /* background-color: red;*/
+    color: black;
+    font-size: large;
 }
 .loginform{
+    margin-left:40%;
+}
+.searchform{
     margin-left:40%;
 }
 .registerform{
@@ -73,13 +77,16 @@ textarea {
 .vehicleTypeForm{
     margin-left:40%;
 }
-.viewVehicleForm{
-    margin-left:20%;
+.viewVehicleForm {
+    margin-left: 5%;
 }
-.background{
-    background-repeat:no-repeat;
-    background-size:cover;
-     background-image:url(../Images/m-fusomediumduty-1.jpg)
+.viewSuggestionForm{
+    margin-left:30%;
+}
+.background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../Images/m-fusomediumduty-1.jpg)
 }
 .vehicleOption{
     display:flex;
@@ -104,6 +111,10 @@ textarea {
     float:right;
     width:10%;
 }
+.vehicleSuggestion {
+    float: right;
+    width: 14%;
+}
 .logout{
      float:right;
     width:10%;
@@ -111,6 +122,37 @@ textarea {
 .column{
     text-align:center;
 }
-.table{
-    width:50%;
+.table {
+    width: 60%;
+    text-align: left;
+    padding: 10px;
+    background-color: azure
+}
+.tableStyle {
+    text-align:left;
+    padding:10px;
+    background-color:azure
+}
+.headStyle {
+    background-color: burlywood;
+}
+.rowStyle {
+    background-color: darkgray;
+}
+.columnStyle{
+    background-color:burlywood;
+}
+.edit {
+    text-decoration: none;
+    /* background-color: red;*/
+    color: black;
+    font-size: large;
+    background-color:chocolate;
+}
+.delete {
+    text-decoration: none;
+    /* background-color: red;*/
+    color: black;
+    font-size: large;
+    background-color: brown;
 }

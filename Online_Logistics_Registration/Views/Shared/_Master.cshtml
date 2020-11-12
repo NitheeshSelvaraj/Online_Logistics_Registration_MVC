@@ -32,11 +32,14 @@
             else if (HttpContext.Current.User.IsInRole("User"))
             {
                 <div class="addVehicle">
-                    @Html.ActionLink("Search", "", "Online_Logistics_Registration_Vehicle", null, new { @class = "link" })
+                    @Html.ActionLink("Search", "UserSearch", "Online_Logistics_Registration_Vehicle", null, new { @class = "link" })
                 </div>
                 @*<div>
                     @Html.ActionLink("Search", "", "Online_Logistics_Registration_Vehicle", null, new { @class = "link" })
                 </div>*@
+                <div class="vehicleSuggestion">
+                    @Html.ActionLink("Vehicle Suggestion", "VehicleSuggestion", "Online_Logistics_Registration_Vehicle", null, new { @class = "link" })
+                </div>
                 <div class="viewVehicle">
                     @Html.ActionLink("User", "", "Online_Logistics_Registration_Vehicle", null, new { @class = "link" })
                 </div>
@@ -53,8 +56,11 @@
             <div class="login">
                 @Html.ActionLink("Login", "Login", "Online_Logistics_Registration_User", null, new { @class = "link" })
             </div>
+            <div class="addVehicle">
+                @Html.ActionLink("Search", "UserSearch", "Online_Logistics_Registration_Vehicle", null, new { @class = "link" })
+            </div>
         }
-       
+
         <div class="home">
             @Html.ActionLink("Home", "Index", "Online_Logistics_Registration_User", null, new { @class = "link" })
         </div>

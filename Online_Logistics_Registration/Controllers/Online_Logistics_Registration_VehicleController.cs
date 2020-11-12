@@ -1,6 +1,10 @@
 ﻿
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Web;
 using System.Web.Mvc;
+using Online_Logistics_Registration.Models;
 using Online_Logistics_Registration_BL;
 using Online_Logistics_Registration_Entity;
 
@@ -27,6 +31,34 @@ namespace Online_Logistics_Registration.Controllers
             TempData["Details"] = vehicleDetails;
             return View();
         }
+        [HttpGet]
+        public ActionResult UserSearch()
+        {
+            ViewBag.startLocation = new SelectList(vehiclePath.GetStartLocation());
+            ViewBag.destinationLocation = new SelectList(vehiclePath.GetDestinationLocation());
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UserSearch(VehicleModel vehicleModel)
+        {
+            ViewBag.startLocation = new SelectList(vehiclePath.GetStartLocation());
+            ViewBag.destinationLocation = new SelectList(vehiclePath.GetDestinationLocation());
+            List<Vehicle> vehicle = vehiclePath.SearchByLocation(vehicleModel.StartLocation, vehicleModel.DestinationLocation);
+            if(vehicle.Count!=0)
+            {
+                TempData["Suggestion"] = vehicle;
+                return RedirectToAction("SearchDisplay");
+            }
+            else
+            {
+                ViewBag.Message = "No Vehicle for this Location";
+                return View();
+            }
+        }
+        public ActionResult SearchDisplay()
+        {
+            return View();
+        }
 
         [HttpGet]
         [ActionName("AddVehicle")]
@@ -38,12 +70,21 @@ namespace Online_Logistics_Registration.Controllers
         }
         [HttpPost]
         [ActionName("AddVehicle")]
-        public ActionResult AddVehicle_post(Online_Logistics_Registration.Models.VehicleModel vehicle)
+        public ActionResult AddVehicle_post(Online_Logistics_Registration.Models.VehicleModel vehicle,HttpPostedFileBase fileBase)
         {
             ViewBag.Vehicle = new SelectList(vehiclePath.GetVehicle(), "VehicleTypeID", "VehicleTypes");
+            if(fileBase!=null && fileBase.ContentLength>0)
+            {
+                var fileName = Path.GetFileName(fileBase.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data/Images"), fileName);
+                fileBase.SaveAs(path);
+            }
 
             if (ModelState.IsValid)
             {
+                ///VehicleModel vehicleModel = new VehicleModel();
+                vehicle.Image = new byte[fileBase.ContentLength];
+                fileBase.InputStream.Read(vehicle.Image, 0, fileBase.ContentLength);
                 Vehicle vehicleObject = AutoMapper.Mapper.Map<Models.VehicleModel, Online_Logistics_Registration_Entity.Vehicle>(vehicle);
                 ////vehicleEntity.VehicleID = vehicle.VehicleID;
                 //vehicleEntity.VehicleNumber = vehicle.VehicleNumber;
@@ -165,6 +206,7 @@ namespace Online_Logistics_Registration.Controllers
         {
             return RedirectToAction("Login","Online_Logistics_Registration_User");
         }
+        [Authorize(Roles = "User")]
         public ActionResult VehicleSuggestion()
         {
             IEnumerable<Vehicle> vehicleDetails = vehiclePath.GetDB();

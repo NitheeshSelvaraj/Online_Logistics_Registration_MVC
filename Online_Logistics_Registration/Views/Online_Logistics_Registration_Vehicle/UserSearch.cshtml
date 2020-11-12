@@ -1,0 +1,32 @@
+﻿@model Online_Logistics_Registration.Models.VehicleModel
+
+@{
+    ViewBag.Title = "UserSearch";
+}
+
+<div class="searchform">
+    <h2>UserSearch</h2>
+    @if (ViewBag.Message != null)
+    {
+        Response.Write(ViewBag.Message);
+
+    }
+    @using (Html.BeginForm("UserSearch", "Online_Logistics_Registration_Vehicle", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>
+                    @Html.DropDownListFor(Model => Model.StartLocation, (IEnumerable<SelectListItem>)ViewBag.startLocation, "Select start Location")
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.DestinationLocation, (IEnumerable<SelectListItem>)ViewBag.destinationLocation, "Select destination Location")
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Search" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

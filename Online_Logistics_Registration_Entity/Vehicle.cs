@@ -62,6 +62,8 @@ namespace Online_Logistics_Registration_Entity
         [Column("Load_Weight")]
         public int VehicleLoadWeight { get; set; }
 
+        public byte[] Image { get; set; }
+
         [Required]
         [Column("Status")]
         public string Status { get; set; }

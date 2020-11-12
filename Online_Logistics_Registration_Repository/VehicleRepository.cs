@@ -34,6 +34,28 @@ namespace Online_Logistics_Registration_Repository
         //{
         //    return vehicleList;
         //}
+        public IEnumerable<string> GetStartLocation()
+        {
+            using(UserContext userContext=new UserContext())
+            {
+                return (from vehicle in userContext.VehicleDetails select vehicle.StartLocation).Distinct().ToList();
+            }
+        }
+
+        public IEnumerable<string> GetDestinationLocation()
+        {
+            using (UserContext userContext = new UserContext())
+            {
+                return (from vehicle in userContext.VehicleDetails select vehicle.DestinationLocation).Distinct().ToList();
+            }
+        }
+        public List<Vehicle> SearchByLocation(string startLocation,string destinationLocation)
+        {
+            using(UserContext userContext=new UserContext())
+            {
+                return (from vehicle in userContext.VehicleDetails where vehicle.StartLocation == startLocation && vehicle.DestinationLocation == destinationLocation select vehicle).Include("VehicleType").ToList();
+            }
+        }
 
         public int Add(Vehicle vehicle)
         {

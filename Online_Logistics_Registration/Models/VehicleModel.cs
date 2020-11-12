@@ -46,6 +46,7 @@ namespace Online_Logistics_Registration.Models
         [Required(ErrorMessage = "Load weight Required")]
         [Range(12, 99)]
         public int VehicleLoadWeight { get; set; }
+        public byte[] Image { get; set; }
 
     }
 }

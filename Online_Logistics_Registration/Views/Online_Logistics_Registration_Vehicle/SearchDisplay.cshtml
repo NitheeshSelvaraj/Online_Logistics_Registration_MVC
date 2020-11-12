@@ -1,9 +1,8 @@
 ﻿@model Online_Logistics_Registration_Entity.Vehicle
 
 @{
-    ViewBag.Title = "VehicleSuggestion";
+    ViewBag.Title = "SearchDisplay";
 }
-
 
 <div class="viewSuggestionForm">
     <h2>VehicleSuggestion</h2>
@@ -12,7 +11,7 @@
     @foreach (Online_Logistics_Registration_Entity.Vehicle item in (IEnumerable<Online_Logistics_Registration_Entity.Vehicle>)TempData["Suggestion"])
     {
         <table @*border="1"*@ @*class="tableStyle"*@ class="table">
-            <tr >
+            <tr>
 
             <tr class="rowStyle">
                 <td class="columnStyle">
@@ -33,7 +32,7 @@
                 catch (Exception)
                 {
                     <td rowspan="8">
-                        <img src="" alt="No image"/>
+                        <img src="" alt="No image" />
                     </td>
                 }
             </tr>

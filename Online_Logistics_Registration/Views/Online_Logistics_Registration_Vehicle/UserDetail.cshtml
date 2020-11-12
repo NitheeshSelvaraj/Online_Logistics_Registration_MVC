@@ -7,8 +7,8 @@
 <div class="userDetailForm">
     <h2>UserDetail</h2>
 
-    <table border="1">
-        <tr>
+    <table @*border="1"*@ class="tableStyle ">
+        <tr class="headStyle">
             <th>
                 User Id
             </th>
@@ -35,7 +35,7 @@
         {
             if (@item.Role != "Admin")
             {
-                <tr>
+                <tr class="rowStyle">
                     <td>
                         @item.Id
 
@@ -55,8 +55,8 @@
                     <td>
                         @item.Password
                     </td>
-                    <td>
-                        @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id }, new { @class = "link", Onclick = "return confirm('The details will be deleted permanently. Are you sure to delete?')" })
+                    <td class="delete">
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id }, new { @class = "delete", Onclick = "return confirm('The details will be deleted permanently. Are you sure to delete?')" })
                     </td>
                 </tr>
             }

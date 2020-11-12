@@ -1,7 +1,7 @@
 ﻿using Online_Logistics_Registration_Entity;
 using Online_Logistics_Registration_Repository;
 using System.Collections.Generic;
-
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Online_Logistics_Registration_BL
 {
@@ -17,6 +17,9 @@ namespace Online_Logistics_Registration_BL
         IEnumerable<Vehicle> GetDB();
         IEnumerable<VehicleType> GetTypeDetails();
         IEnumerable<VehicleType> GetVehicle();
+        IEnumerable<string> GetStartLocation();
+        IEnumerable<string> GetDestinationLocation();
+        List<Vehicle> SearchByLocation(string startLocation, string destinationLocation);
     }
     public class VehiclePath: IVehiclePath
     {
@@ -28,6 +31,18 @@ namespace Online_Logistics_Registration_BL
         public IEnumerable<VehicleType> GetTypeDetails()
         {
             return vehicleRepository.GetTypeDetails();
+        }
+        public IEnumerable<string> GetStartLocation()
+        {
+            return vehicleRepository.GetStartLocation();
+        }
+        public IEnumerable<string> GetDestinationLocation()
+        {
+            return vehicleRepository.GetDestinationLocation();
+        }
+        public List<Vehicle> SearchByLocation(string startLocation,string destinationLocation)
+        {
+            return vehicleRepository.SearchByLocation(startLocation,destinationLocation);
         }
         public int Add(Vehicle vehicle)
         {

@@ -9,8 +9,8 @@
     <h2>ViewVehicle</h2>
 
 
-    <table border="1">
-        <tr>
+    <table @*border="1"*@ class="tableStyle">
+        <tr class="headStyle">
             <th>
                 Vehicle Id
             </th>
@@ -30,10 +30,13 @@
                 Distance
             </th>
             <th>
-                Rate
+                Rate(per km)
             </th>
             <th>
-                Load Weight
+                Load Weight(in ton)
+            </th>
+            <th>
+                Image
             </th>
             <th>
                 Status
@@ -45,40 +48,56 @@
         @foreach (Online_Logistics_Registration_Entity.Vehicle item in (IEnumerable<Online_Logistics_Registration_Entity.Vehicle>)TempData["Details"])
         {
 
-            <tr>
-                <td>
-                    @item.VehicleID
+    <tr class="rowStyle">
+        <td>
+            @item.VehicleID
 
-                </td>
-                <td>
-                    @item.VehicleNumber
-                </td>
-                <td>
-                    @item.VehicleType.VehicleTypes
-                </td>
-                <td>
-                    @item.StartLocation
-                </td>
-                <td>
-                    @item.DestinationLocation
-                </td>
-                <td>
-                    @item.Distance
-                </td>
-                <td>
-                    @item.Rate
-                </td>
-                <td>
-                    @item.VehicleLoadWeight
-                </td>
-                <td>
-                    @item.Status
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditVehicle", new { id = item.VehicleID }, new { @class = "link" })|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID }, new { @class = "link", Onclick = "return confirm('The details will be deleted permanently. Are you sure to delete?')" })
-                </td>
-            </tr>
+        </td>
+        <td>
+            @item.VehicleNumber
+        </td>
+        <td>
+            @item.VehicleType.VehicleTypes
+        </td>
+        <td>
+            @item.StartLocation
+        </td>
+        <td>
+            @item.DestinationLocation
+        </td>
+        <td>
+            @item.Distance
+        </td>
+        <td>
+            @item.Rate
+        </td>
+        <td>
+            @item.VehicleLoadWeight
+        </td>
+        @try
+        {
+            string image = Convert.ToBase64String(item.Image);
+            string imageSource = String.Format("data:image/gif;base64,{0}", image);
+            <td>
+                <img src='@imageSource' style="width:200px;height:200px;" />
+            </td>
+        }
+        catch (Exception)
+        {
+            <td>
+                <img src="" alt="No image"/>
+            </td>
+        }
+
+
+        <td>
+            @item.Status
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditVehicle", new { id = item.VehicleID }, new { @class = "edit" })|
+            @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID }, new { @class = "delete", Onclick = "return confirm('The details will be deleted permanently. Are you sure to delete?')" })
+        </td>
+    </tr>
 
         }
     </table>

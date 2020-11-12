@@ -72,7 +72,7 @@
                 @Html.LabelFor(Model => Model.UserName)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.UserName, new { maxlength = "7" })
+                @Html.TextBoxFor(Model => Model.UserName, new { maxlength = "7",PlaceHolder="less than 5 letters and 2 digits(aaaa04)"})
                 @Html.ValidationMessageFor(Model => Model.UserName)
             </td>
         </tr>
@@ -81,7 +81,7 @@
                 @Html.LabelFor(Model => Model.Password)
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.Password, new { maxlength = "20" })
+                @Html.PasswordFor(Model => Model.Password, new { maxlength = "20", PlaceHolder = "Letters,digits and @ in between" })
                 @Html.ValidationMessageFor(Model => Model.Password)
             </td>
         </tr>
